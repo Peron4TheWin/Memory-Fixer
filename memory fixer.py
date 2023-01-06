@@ -6,6 +6,7 @@ ram=int(int(ram)/1024/1024)
 if ram > 16341:
     ram = 16341
 ram = int(ram)
-subprocess.run('wmic pagefile list /format:list')
-subprocess.run(r'wmic computersystem where name="%computername%" set AutomaticManagedPagefile=false')
-subprocess.run(fr'wmic pagefileset where name="C:\pagefile.sys" set InitialSize={ram},MaximumSize={ram}')
+subprocess.run('wmic pagefile list /format:list',shell=True)
+subprocess.call("cls",shell=True)
+subprocess.run(r'wmic computersystem where name="%computername%" set AutomaticManagedPagefile=false',shell=True)
+subprocess.run(fr'wmic pagefileset where name="C:\\pagefile.sys" set InitialSize={ram},MaximumSize={ram}',shell=True)
